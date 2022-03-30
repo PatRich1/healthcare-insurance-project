@@ -2,15 +2,16 @@ package com.revature.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 @Entity
+@Table(name = "claims")
 public class Claim {
     @Id
+   // @GeneratedValue(strategy = GenerationType.AUTO)
     private int claim_id;
+    @Column
     private String description;
     private double amount;
     private LocalDate date;
