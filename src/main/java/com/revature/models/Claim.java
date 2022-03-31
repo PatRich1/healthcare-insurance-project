@@ -9,9 +9,8 @@ import java.util.Objects;
 @Table(name = "claims")
 public class Claim {
     @Id
-   // @GeneratedValue(strategy = GenerationType.AUTO)
-    private int claim_id;
-    @Column
+   @GeneratedValue(strategy = GenerationType.AUTO)
+    private int claimId;
     private String description;
     private double amount;
     private LocalDate date;
@@ -22,8 +21,8 @@ public class Claim {
 
     public Claim() {
     }
-    public Claim(int claim_id, String description, double amount, LocalDate date, User user, String status){
-        this.claim_id = claim_id;
+    public Claim(int claimId, String description, double amount, LocalDate date, User user, String status){
+        this.claimId = claimId;
         this.description = description;
         this.amount = amount;
         this.date = date;
@@ -32,12 +31,12 @@ public class Claim {
     }
 
 
-    public int getClaim_id() {
-        return claim_id;
+    public int getClaimId() {
+        return claimId;
     }
 
-    public void setClaim_id(int claim_id) {
-        this.claim_id = claim_id;
+    public void setClaimId(int claimId) {
+        this.claimId = claimId;
     }
 
     public String getDescription() {
@@ -48,11 +47,11 @@ public class Claim {
         this.description = description;
     }
 
-    public Double getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(Double amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -64,14 +63,6 @@ public class Claim {
         this.date = date;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setIs_approved(String status) {
-        this.status = status;
-    }
-
     public User getUser() {
         return user;
     }
@@ -80,23 +71,31 @@ public class Claim {
         this.user = user;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Claim claim = (Claim) o;
-        return claim_id == claim.claim_id && Objects.equals(description, claim.description) && Objects.equals(amount, claim.amount) && Objects.equals(date, claim.date) && Objects.equals(status, claim.status) && Objects.equals(user, claim.user);
+        return claimId == claim.claimId && Objects.equals(description, claim.description) && Objects.equals(amount, claim.amount) && Objects.equals(date, claim.date) && Objects.equals(status, claim.status) && Objects.equals(user, claim.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(claim_id, description, amount, date, status, user);
+        return Objects.hash(claimId, description, amount, date, status, user);
     }
 
     @Override
     public String toString() {
         return "Claim{" +
-                "claim_id=" + claim_id +
+                "claimId=" + claimId +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
                 ", date=" + date +

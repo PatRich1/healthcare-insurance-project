@@ -10,10 +10,9 @@ import java.util.Objects;
 @Table(name = "users")
 public class User {
     @Id
-   // @GeneratedValue(strategy = GenerationType.AUTO)
-    private int user_id;
-    private String first_name;
-    private String last_name;
+    private int userId;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
     private boolean isEmployee;
@@ -21,46 +20,38 @@ public class User {
     public User(){
     }
 
-    public User(int user_id, String first_name, String last_name, String email, String password, boolean isEmployee) {
-        this.user_id = user_id;
-        this.first_name = first_name;
-        this.last_name = last_name;
+    public User(int userId, String firstName, String lastName, String email, String password, boolean isEmployee) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.isEmployee = isEmployee;
 
     }
 
-    public boolean isEmployee() {
-        return isEmployee;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setEmployee(boolean employee) {
-        isEmployee = employee;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUser_id(int member_id) {
-        this.user_id = member_id;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -79,25 +70,33 @@ public class User {
         this.password = password;
     }
 
+    public boolean isEmployee() {
+        return isEmployee;
+    }
+
+    public void setEmployee(boolean employee) {
+        isEmployee = employee;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return user_id == user.user_id && Objects.equals(first_name, user.first_name) && Objects.equals(last_name, user.last_name) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
+        return userId == user.userId && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user_id, first_name, last_name, email, password);
+        return Objects.hash(userId, firstName, lastName, email, password);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "member_id=" + user_id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
+                "UserId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", employee="+isEmployee+

@@ -2,11 +2,12 @@ package com.revature.controllers;
 
 
 import com.revature.models.Claim;
-import com.revature.services.ClaimMockService;
+import com.revature.services.ClaimService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -14,19 +15,25 @@ import java.util.List;
 public class ClaimController {
 
     @Autowired
-    ClaimMockService claimMockService;
+    ClaimService claimService;
 
+    @GetMapping("/claims")
+    public List<Claim> getClaims(){
+        return claimService.getAllClaims();
+    }
 
-    @GetMapping("/claims/{id}")
-    public Claim getClaimById(@PathVariable("id") int idParam){
-        return claimMockService.getClaimById(idParam);
+    @GetMapping("/claims/{claimId}")
+    public Optional<Claim> getClaimById(@PathVariable("claimId") int idParam){
+        return claimService.getClaimById(idParam);
+    }
+    @GetMapping("/claims/{status}")
+    public List<Claim> getClaimsByStatus(@PathVariable("status") String statusParam){
+        return claimService.getClaimByStatus(statusParam);
     }
 
     @PostMapping("/claims")
-    public String addNewClaim(@RequestBody Claim newClaim) {
-        System.out.println("We got a claim object: "+newClaim);
-        
-        claimMockService.addNewClaim(newClaim);
-        return "you added a new claim: "+ newClaim.getClaim_id();
+    public Claim addNewClaim(@RequestBody Claim newClaim) {
+        System.out.println(newClaim);
+        return claimService.addNewClaim(newClaim);
     }
 }
