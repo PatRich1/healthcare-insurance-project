@@ -26,7 +26,7 @@ public class ClaimController {
     public Optional<Claim> getClaimById(@PathVariable("claimId") int idParam){
         return claimService.getClaimById(idParam);
     }
-    @GetMapping("/claims/{status}")
+    @GetMapping("/claims/status/{status}")
     public List<Claim> getClaimsByStatus(@PathVariable("status") String statusParam){
         return claimService.getClaimByStatus(statusParam);
     }
