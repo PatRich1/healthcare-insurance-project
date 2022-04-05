@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.revature.models.Claim;
 import com.revature.services.ClaimService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,4 +37,9 @@ public class ClaimController {
         System.out.println(newClaim);
         return claimService.addNewClaim(newClaim);
     }
+    @PutMapping("/claims/{claimId}")
+    public void setClaimStatusById(@RequestBody String status, @PathVariable("claimId") int claimId){
+        claimService.setClaimStatusById(status, claimId);
+    }
+
 }

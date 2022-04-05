@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 @Entity
 @Table(name = "users")
