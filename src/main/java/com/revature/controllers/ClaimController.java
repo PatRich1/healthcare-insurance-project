@@ -38,8 +38,8 @@ public class ClaimController {
         return claimService.addNewClaim(newClaim);
     }
     @PutMapping("/claims/{claimId}")
-    public void setClaimStatusById(@RequestBody String status, @PathVariable("claimId") int claimId){
-        claimService.setClaimStatusById(status, claimId);
+    public void setClaimStatusById(@RequestBody Claim claim, @PathVariable("claimId") int claimId){
+        claimService.setClaimStatusById(claim.getStatus(), claimId);
     }
 
 }
