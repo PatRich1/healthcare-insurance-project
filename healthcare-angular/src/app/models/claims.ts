@@ -1,4 +1,4 @@
-export interface Claims{
+export interface Claims {
     id: number;
     description: string;
     amount: number;
@@ -8,6 +8,6 @@ export interface Claims{
         userId: number;
         firstName: string;
         lastName: string;
-    }
+    };
 
 }

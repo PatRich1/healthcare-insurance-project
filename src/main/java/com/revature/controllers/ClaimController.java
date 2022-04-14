@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/claim-app")
 public class ClaimController {
@@ -20,6 +20,8 @@ public class ClaimController {
 
     @GetMapping("/claims")
     public List<Claim> getClaims(){
+
+        System.out.println(claimService.getAllClaims());
         return claimService.getAllClaims();
     }
 

@@ -11,8 +11,8 @@ export class ClaimsService {
 
   constructor(private http: HttpClient) { }
 
-  public getClaims(): Observable<Claims>{
-    return this.http.get<Claims>('http://localhost:8080/claim-app/claims');
+  public getClaims(): Observable<Claims[]> {
+    return this.http.get<Claims[]>('http://localhost:8080/claim-app/claims');
 
   }
 }

@@ -9,13 +9,20 @@ import { ClaimsService } from 'src/app/services/claimsservice.service';
 export class ClaimsComponent {
 
 claims: Claims[] = [];
-  constructor(private ClaimsService: ClaimsService) { }
+  constructor(private claimsService: ClaimsService) { }
 
 fetchClaims(): void {
-  this.ClaimsService.getClaims().subscribe(claims => {}) 
+ this.claimsService.getClaims().subscribe((allClaims: Claims[]) => {
+   console.log(allClaims);
+   this.claims = allClaims;
+ }); 
+
   
   
 
 }
 
 }
+
+
+
