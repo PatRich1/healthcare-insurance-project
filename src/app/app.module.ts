@@ -5,12 +5,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClaimsComponent } from './components/claims/claims.component';
+import { SubmitComponent } from './components/submit/submit.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClaimsComponent
+    ClaimsComponent,
+    SubmitComponent
   ],
   imports: [
     BrowserModule,

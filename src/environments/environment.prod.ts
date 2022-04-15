@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  claimAPI: 'https://localhost:44394/api'
 };
