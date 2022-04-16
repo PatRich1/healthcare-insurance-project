@@ -1,5 +1,8 @@
 <label for="claims"></label>
 <button type="submit" (click)="fetchClaims()">Fetch</button> 
+<button type="submit" (click)="fetchClaimsByStatus('pending')">Pending</button>
+<button type="submit" (click)="fetchClaimsByStatus('approved')">Approved</button>
+<button type="submit" (click)="fetchClaimsByStatus('denied')">Denied</button>
 
 <table class="table table-bordered table-striped">
 <tr>
@@ -13,7 +16,7 @@
     <th>Last Name</th>
 </tr>
 <tr *ngFor ="let c of claims">
-    <td>{{ c.id }}</td>
+    <td>{{ c.claimId }}</td>
     <td>{{ c.description }}</td>
     <td>{{ c.amount }}</td>
     <td>{{ c.date }}</td>

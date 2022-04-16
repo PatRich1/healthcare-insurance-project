@@ -13,6 +13,9 @@ export class ClaimsService {
 
   public getClaims(): Observable<Claims[]> {
     return this.http.get<Claims[]>('http://localhost:8080/claim-app/claims');
+ }
 
-  }
+ public getClaimsByStatus(status: string): Observable<Claims[]> {
+  return this.http.get<Claims[]>('http://localhost:8080/claim-app/claims/status/' + status);
+}
 }

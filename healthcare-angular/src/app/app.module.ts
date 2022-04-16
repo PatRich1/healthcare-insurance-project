@@ -9,7 +9,7 @@ import { ClaimsComponent } from './components/claims/claims.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ClaimsComponent
+    ClaimsComponent,
   ],
   imports: [
     BrowserModule,
