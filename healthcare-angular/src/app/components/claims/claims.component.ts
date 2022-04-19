@@ -9,6 +9,7 @@ import { ClaimsService } from 'src/app/services/claimsservice.service';
 })
 export class ClaimsComponent {
 status: any;
+updateForm: any;
 claims: Claims[] = [];
   constructor(private claimsService: ClaimsService) { }
 
@@ -28,5 +29,12 @@ fetchClaimsByStatus(status: any): void {
       this.claims = statusClaims;
     })
    }
-
+   public updateClaims(updateForm: any): void {
+  
+    console.log(updateForm);
+    this.claimsService.updateClaim(updateForm).subscribe((updateClaim: Claims)=> {
+      console.log(updateClaim);
+      this.updateForm = updateClaim;
+    })
+}
 }
