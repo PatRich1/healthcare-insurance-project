@@ -27,6 +27,9 @@
 <label for="claimId">ID: </label>
 <input type="number" name="claimId" formControlName="claimId">
 <label for="status">New status: </label>
-<input type="text" name="status" formControlName="status">
+<select type="text" name="status" formControlName="status">
+    <option value="approved">Approved</option>
+    <option value="denied">Denied</option>
+</select>    
 <button type="submit" >Update</button>
 </form>
