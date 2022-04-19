@@ -11,7 +11,6 @@ import { SubmitComponent } from './components/submit/submit.component';
   declarations: [
     AppComponent,
     ClaimsComponent,
-    SubmitComponent
   ],
   imports: [
     BrowserModule,

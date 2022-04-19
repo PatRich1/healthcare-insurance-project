@@ -1,5 +1,8 @@
 <label for="claims"></label>
 <button type="submit" (click)="fetchClaims()">Fetch</button> 
+<button type="submit" (click)="fetchClaimsByStatus('pending')">Pending</button>
+<button type="submit" (click)="fetchClaimsByStatus('approved')">Approved</button>
+<button type="submit" (click)="fetchClaimsByStatus('denied')">Denied</button>
 
 <table class="table table-bordered table-striped">
 <tr>
