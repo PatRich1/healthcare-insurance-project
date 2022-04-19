@@ -8,6 +8,6 @@ export interface Claims {
         userId: number;
         firstName: string;
         lastName: string;
-    };
-
+    }
+    
 }

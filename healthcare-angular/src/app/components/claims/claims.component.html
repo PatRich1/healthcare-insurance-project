@@ -26,4 +26,13 @@
     <td>{{c.user.lastName}}</td>
 </tr>
 </table>
-
+<form [formGroup]="updateForm" (ngSubmit)="updateClaims(updateForm.value)">
+<label for="claimId">ID: </label>
+<input type="number" name="claimId" formControlName="claimId">
+<label for="status">New status: </label>
+<select type="text" name="status" formControlName="status">
+    <option value="approved">Approved</option>
+    <option value="denied">Denied</option>
+</select>    
+<button type="submit" >Update</button>
+</form>

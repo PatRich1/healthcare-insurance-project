@@ -39,8 +39,11 @@ public class ClaimController {
         System.out.println(newClaim);
         return claimService.addNewClaim(newClaim);
     }
+    @CrossOrigin
     @PutMapping("/claims/{claimId}")
     public void setClaimStatusById(@RequestBody Claim claim, @PathVariable("claimId") int claimId){
+        System.out.println(claim);
+        System.out.println(claimId);
         claimService.setClaimStatusById(claim.getStatus(), claimId);
     }
 

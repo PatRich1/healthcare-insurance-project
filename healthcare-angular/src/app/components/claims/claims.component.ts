@@ -1,7 +1,7 @@
-import { ClaimsService } from './../../services/claimsservice.service';
-import { Component, OnInit } from '@angular/core';
-import { Claims } from 'src/app/models/claims';
-
+import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Claims } from 'src/app/models/claims'; 
+import { ClaimsService } from 'src/app/services/claimsservice.service';
 @Component({
   selector: 'app-claims',
   templateUrl: './claims.component.html',
