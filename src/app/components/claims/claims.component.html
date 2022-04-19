@@ -1,19 +1,19 @@
 <label for="claims"></label>
-<button type="submit" (click)="fetchClaims()">All Claims</button> 
+<button type="submit" (click)="fetchClaims()">Fetch</button> 
 
 <table class="table table-bordered table-striped">
 <tr>
-    <th scope="col">Claim Id</th>
-    <th scope="col">Description</th>
-    <th scope="col">Amount</th>
-    <th scope="col">Date</th>
-    <th scope="col">Status</th>
-    <th scope="col">User Id</th>
-    <th scope="col">First Name</th>
-    <th scope="col">Last Name</th>
+    <th>Claim Id</th>
+    <th>Description</th>
+    <th>Amount</th>
+    <th>Date</th>
+    <th>Status</th>
+    <th>User Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
 </tr>
-<tr *ngFor="let c of claims;">
-    <td>{{ c.id }}</td>
+<tr *ngFor ="let c of claims">
+    <td>{{ c.claimId }}</td>
     <td>{{ c.description }}</td>
     <td>{{ c.amount }}</td>
     <td>{{ c.date }}</td>
@@ -23,3 +23,11 @@
     <td>{{c.user.lastName}}</td>
 </tr>
 </table>
+<form [formGroup]="updateForm" (ngSubmit)="updateClaims(updateForm.value)">
+<label for="claimId">ID: </label>
+<input type="number" name="claimId" formControlName="claimId">
+<label for="status">New status: </label>
+<input type="text" name="status" formControlName="status">
+<button type="submit" >Update</button>
+</form>
+

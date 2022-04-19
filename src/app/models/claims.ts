@@ -1,5 +1,5 @@
 export interface Claims{
-    id: number;
+    claimId: number;
     description: string;
     amount: number;
     date: Date;
@@ -9,5 +9,7 @@ export interface Claims{
         firstName: string;
         lastName: string;
     }
+
+    
 
 }

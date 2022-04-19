@@ -8,17 +8,30 @@ import { Claims } from '../models/claims';
   providedIn: 'root'
 })
 export class ClaimService {
-
-  url = environment.claimAPI;
+  [x: string]: any;
 
   constructor(private http: HttpClient) { }
-  getClaims(): Observable<any>{   
-    return this.http.get<any>(this.url + '/claims');
+
+  public getClaims(): Observable<Claims[]> {
+    return this.http.get<Claims[]>('http://localhost:8080/claim-app/claims');
+
+  }
+  public addClaim(newClaim: any): Observable<Claims> {
+    console.log(newClaim);
+    const headers = { 'content-type': 'application/json'}
+    const body = JSON.parse(newClaim);
+    return this.http.post<any>('http://localhost:8080/claim-app/claims', body);
   }
 
-  addClaim(newClaims: Claims): Observable<Claims>{
+  public updateClaim(updateClaim: any): Observable<any>{
+    console.log(updateClaim.claimId);
+    console.log(updateClaim.status);
+    let requestbody = JSON.stringify(updateClaim)
+    const body = requestbody;
     const headers = { 'content-type': 'application/json'}
-    const body = JSON.stringify(newClaims);
-    return this.http.post<Claims>(this.url + '/claims', body);
+    console.log(headers);
+   return this.http.put<any>('http://localhost:8080/claim-app/claims/' + updateClaim.claimId, body, {headers});
   }
+
+
 }

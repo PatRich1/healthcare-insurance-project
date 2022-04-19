@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Claims } from 'src/app/models/claims';
+import { ClaimService } from 'src/app/services/claim.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-submit',
@@ -9,12 +11,35 @@ import { Claims } from 'src/app/models/claims';
 })
 export class SubmitComponent {
 
- // ClaimsModel = new Claim('5', 'Sprain Ankle', '800', 4-14-2022, 3);
 
-  constructor(){}
+  submitclaim: any;
 
-  public onSubmit() {
-   console.log('submited');
-  }
+  constructor(private claimService: ClaimService){}
+
+  ngOnInit(): void {
+    this.submitclaim = new FormGroup({
+      description: new FormControl(),
+      amount: new FormControl(),
+      date: new FormControl(),
+      status: new FormControl('pending'),
+       user: new FormGroup({
+        userId: new FormControl(),
+        firstName: new FormControl(),
+        lastName: new FormControl()
+      })
+
+    })
 
 }
+
+  onSubmit(submitclaim: any){
+    console.log(submitclaim);
+    let newClaim = JSON.stringify(submitclaim);
+    this.claimService.addClaim(newClaim).subscribe(() => {
+    })
+  }
+
+
+
+}
+
