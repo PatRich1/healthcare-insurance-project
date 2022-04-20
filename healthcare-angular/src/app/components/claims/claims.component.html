@@ -1,9 +1,14 @@
-<label for="claims"></label>
-<button type="submit" (click)="fetchClaims()">Fetch</button> 
-<button type="submit" (click)="fetchClaimsByStatus('pending')">Pending</button>
-<button type="submit" (click)="fetchClaimsByStatus('approved')">Approved</button>
-<button type="submit" (click)="fetchClaimsByStatus('denied')">Denied</button>
+<body>
+    
+    <label for="claims"></label>
 
+<div id="navBtn">
+<button id="fetchBtn" type="submit" class="btn btn-primary" (click)="fetchClaims()">Fetch</button> 
+<button id="pendingBtn" type="submit" class="btn btn-primary" (click)="fetchClaimsByStatus('pending')">Pending</button>
+<button id="approvedBtn" type="submit" class="btn btn-primary" (click)="fetchClaimsByStatus('approved')">Approved</button>
+<button id="deniedBtn" type="submit" class="btn btn-primary" (click)="fetchClaimsByStatus('denied')">Denied</button>
+</div>
+<label for="claims"></label>
 <table class="table table-bordered table-striped">
 <tr>
     <th>Claim Id</th>
@@ -27,12 +32,20 @@
 </tr>
 </table>
 <form [formGroup]="updateForm" (ngSubmit)="updateClaims(updateForm.value)">
-<label for="claimId">ID: </label>
+
+<label for="claimId">Identification Number: </label>
 <input type="number" name="claimId" formControlName="claimId">
-<label for="status">New status: </label>
+<br>
+<br>
+<label for="status">New status:</label>
 <select type="text" name="status" formControlName="status">
     <option value="approved">Approved</option>
     <option value="denied">Denied</option>
 </select>    
-<button type="submit" >Update</button>
+<br>
+<br>
+<button id="updateBtn" class="btn btn-primary" type="submit" >Update</button>
 </form>
+
+<label for="claims"></label>
+</body>

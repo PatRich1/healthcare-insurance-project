@@ -1,0 +1,53 @@
+body{
+    margin: left 25px;
+    background-color: darkgrey;
+    font-family: 'Times New Roman', Times, serif;
+    font: bold;
+}
+
+navBtn{
+    margin: 20px 0;
+}
+#updateBtn {
+    margin-left: 20px;
+}
+ #deniedBtn {
+    margin-left: 20px;
+ }
+
+ #approvedBtn {
+    margin-left: 20px;
+ }
+
+ #pendingBtn {
+    margin-left: 20px;
+ }
+
+ #fetchBtn {
+    margin-left: 20px;
+ }
+
+ input[type=number] {
+    border: 3px solid black;
+    margin-left: 10px;
+}
+
+select[type=text] {
+    border: 3px solid black;
+    margin-left: 10px;
+}
+label[for=claimId] {
+    margin-left: 20px; 
+    font-family: 'Times New Roman', Times, serif;
+    font: bold;
+    color: black;
+    font-size: 25px;
+}
+
+label[for=status] {
+    margin-left: 20px; 
+    font-family: 'Times New Roman', Times, serif;
+    font: bold;
+    color: black;
+    font-size: 25px;
+}
